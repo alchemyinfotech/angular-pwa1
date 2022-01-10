@@ -1,3 +1,6 @@
 this is pwa
 <div *ngIf="isOnline">Online</div>
 <div *ngIf="!isOnline">offline</div>
+
+<button type="button" (click)="closeVersion()">click to close version</button>
+New Version Available :<a href="" (click)="updateVersion()">update app</a>
