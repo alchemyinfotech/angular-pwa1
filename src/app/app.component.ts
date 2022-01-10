@@ -1,10 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'angular-pwa1';
+export class AppComponent implements OnInit{
+ isOnline:boolean;
+ constructor()
+ {
+   this.isOnline=false;
+ }
+  ngOnInit(): void {
+   // throw new Error('Method not implemented.');
+ this.updateOnlineStatus
+
+  window.addEventListener('online',this.updateOnlineStatus.bind(this));
+  window.addEventListener('offline',this.updateOnlineStatus.bind(this));
+  }
+
+  private updateOnlineStatus():void{
+this.isOnline=window.navigator.onLine;
+console.info('isOnline=[${this.isOnline}]');
+   
+  }
+
 }
