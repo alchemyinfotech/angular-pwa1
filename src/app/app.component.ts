@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
 import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
 import { filter, map } from 'rxjs/operators';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   modalPwaPlatform: string|undefined;
 
   constructor(private platform: Platform,
-              private swUpdate: SwUpdate) {
+              private swUpdate: SwUpdate,private modalService:NgbModal) {
     this.isOnline = false;
     this.modalVersion = false;
   }
